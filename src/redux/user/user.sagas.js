@@ -67,6 +67,7 @@ export function* onSignOutStart() {
 }
 
 export function* signUp ({ payload: {email, password, displayName}}) {
+    console.log('am i here')
     try {
         const { user } = yield auth.createUserWithEmailAndPassword(email, password)
         const userRef = yield call(createUserProfileDocument, user, { displayName })
@@ -79,6 +80,7 @@ export function* signUp ({ payload: {email, password, displayName}}) {
 }
 
 export function* onSignUpStart() {
+    console.log("HHHHHHHHHHHH")
     yield takeLatest(UserActionTypes.SIGN_UP_START, signUp)
 } 
 
